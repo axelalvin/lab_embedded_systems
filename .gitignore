@@ -2,7 +2,7 @@
 *.d
 
 # Object files
-*.o
+#*.o
 *.ko
 *.obj
 *.elf
@@ -35,6 +35,7 @@
 *.i*86
 *.x86_64
 *.hex
+task-sched
 
 # Debug files
 *.dSYM/
