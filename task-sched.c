@@ -48,7 +48,6 @@ pque add_to_waitlist(sch_task *v, pque list, int algo)
 {
 	if (list == NULL)
 		return create_q(v);
-
 	else if (v->duration < list->task->duration && !algo)
 		return link_in(create_q(v), list);
 	else if (v->abs_deadline < list->task->abs_deadline && algo)
