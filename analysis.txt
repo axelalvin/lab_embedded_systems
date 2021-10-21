@@ -1,0 +1,61 @@
+Processing time: 
+Avg proc time for edf 1:	17.78
+Avg proc time for  rm 1:	17.78
+Avg proc time for edf 2:	17.78
+Avg proc time for  rm 2:	17.78
+
+Response time: 
+Avg resp time for edf 1:	34.44
+Avg resp time for  rm 1:	35.56
+Avg resp time for edf 2:	36.40
+Avg resp time for  rm 2:	40.09
+
+Lateness
+Avg  lateness  for edf 1:	0.00
+Task 0 was late 0 times for edf 1
+Task 1 was late 0 times for edf 1
+Task 2 was late 0 times for edf 1
+Avg earliness for edf 1:	18.89
+
+
+Avg  lateness  for  rm 1:	0.00
+Task 0 was late 0 times for  rm 1
+Task 1 was late 0 times for  rm 1
+Task 2 was late 0 times for  rm 1
+Avg earliness for  rm 1:	17.78
+
+
+Avg  lateness  for edf 2:	1.81
+Task 0 was late 43 times for edf 2
+Task 1 was late 89 times for edf 2
+Task 2 was late 26 times for edf 2
+Avg earliness for edf 2:	18.73
+
+
+Avg  lateness  for  rm 2:	10.27
+Task 0 was late 0 times for  rm 2
+Task 1 was late 19 times for  rm 2
+Task 2 was late 87 times for  rm 2
+Avg earliness for  rm 2:	23.52
+
+
+
+Obs_proc time proc_time diff
+Total diff for task 0 is 0 for edf 1
+Total diff for task 1 is 0 for edf 1
+Total diff for task 2 is 0 for edf 1
+
+
+Total diff for task 0 is 0 for rm 1
+Total diff for task 1 is 0 for rm 1
+Total diff for task 2 is 0 for rm 1
+
+
+Total diff for task 0 is 0 for edf 2
+Total diff for task 1 is 2350 for edf 2
+Total diff for task 2 is 0 for edf 2
+
+
+Total diff for task 0 is 0 for rm 2
+Total diff for task 1 is 2350 for rm 2
+Total diff for task 2 is 0 for rm 2
