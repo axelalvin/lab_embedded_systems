@@ -92,22 +92,6 @@ def checkDiff(list, name):
     print("\n")
 
 
-def run_axel():
-    prog1_edf = open("trace-prog1-edf.data", "r")
-    prog1_rm = open("trace-prog1-rm.data", "r")
-    prog2_edf = open("trace-prog2-edf.data", "r")
-    prog2_rm = open("trace-prog2-rm.data", "r")   
-
-def run_lukas():
-    prog1_edf = open("lukas_trace-prog1-edf.data", "r")
-    prog1_rm = open("lukas_trace-prog1-rm.data", "r")
-    prog2_edf = open("lukas_trace-prog2-edf.data", "r")
-    prog2_rm = open("lukas_trace-prog2-rm.data", "r")
-
-
-#run_axel()
-#run_lukas()
-
 prog1_edf = open("trace-prog1-edf.data", "r")
 prog1_rm = open("trace-prog1-rm.data", "r")
 prog2_edf = open("trace-prog2-edf.data", "r")
