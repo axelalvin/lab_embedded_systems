@@ -8,6 +8,7 @@ class aborted_tasks:
         self.finished = finished
         self.observed_proc_time = observed_proc_time
 
+
 class finished_tasks:
     def __init__(self, index, arrival, proc_time, period, abs_deadline, finished, observed_proc_time):
         self.index = index
@@ -19,33 +20,41 @@ class finished_tasks:
         self.observed_proc_time = observed_proc_time
 
 
-#read trace data into a list of objects
+# read trace data into a list of objects
 def readIntoList(program, a_list, f_list):
     tokens = []
     for line in program:
         tokens = line.split(":")
         if tokens[0] == "a":
-            a_list.append(finished_tasks(tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7]))
+            a_list.append(finished_tasks(
+                tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7]))
         if tokens[0] == "f":
-            f_list.append(finished_tasks(tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7]))
+            f_list.append(finished_tasks(
+                tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7]))
 
 
-#calculate avg processing time in a program
+# calculate avg processing time in a program
 def calcAvgProcTime(list, name):
     total_proc_time = 0
     for i in list:
         total_proc_time += int(i.proc_time)
-    print("Avg proc time for " + name + ":\t" + str("%.2f" % round(total_proc_time / len(list), 2)))
+    print("Avg proc time for " + name + ":\t" + str("%.2f" %
+                                                    round(total_proc_time / len(list), 2)))
 
-#calculate avg response time in a program
+# calculate avg response time in a program
+
+
 def calcAvgResponseTime(list, name):
     total_response_time = 0
     for i in list:
         curr_response_time = int(i.finished) - int(i.arrival)
         total_response_time += curr_response_time
-    print("Avg resp time for " + name + ":\t" + str("%.2f" % round(total_response_time / len(list), 2)))
+    print("Avg resp time for " + name + ":\t" + str("%.2f" %
+                                                    round(total_response_time / len(list), 2)))
 
-#calculate avg lateness if late and earliness if early
+# calculate avg lateness if late and earliness if early
+
+
 def calcAvgLateness(list, name):
     total_lateness = 0
     no_of_late_0 = 0
@@ -65,11 +74,13 @@ def calcAvgLateness(list, name):
         elif(int(i.finished) - int(i.abs_deadline)) < 0:
             curr_earliness = int(i.abs_deadline) - int(i.finished)
             total_earliness += curr_earliness
-    print("Avg  lateness  for " + name + ":\t" + str("%.2f" % round(total_lateness / len(list), 2)))
-    print(f"Task 0 was late {no_of_late_0} times for {name}");
-    print(f"Task 1 was late {no_of_late_1} times for {name}");
-    print(f"Task 2 was late {no_of_late_2} times for {name}");
-    print("Avg earliness for " + name + ":\t" + str("%.2f" % round(total_earliness / len(list), 2)))
+    print("Avg  lateness  for " + name + ":\t" +
+          str("%.2f" % round(total_lateness / len(list), 2)))
+    print(f"Task 0 was late {no_of_late_0} times for {name}")
+    print(f"Task 1 was late {no_of_late_1} times for {name}")
+    print(f"Task 2 was late {no_of_late_2} times for {name}")
+    print("Avg earliness for " + name + ":\t" + str("%.2f" %
+                                                    round(total_earliness / len(list), 2)))
     print("\n")
 
 
@@ -90,6 +101,7 @@ def checkDiff(list, name):
     print(f"Total diff for task 1 is {diff1} for {name}")
     print(f"Total diff for task 2 is {diff2} for {name}")
     print("\n")
+
 
 def checkObservedProc(list, name):
     obs0 = 0
@@ -115,19 +127,21 @@ def checkObservedProc(list, name):
             obs2 += int(i.observed_proc_time)
             proc2 = int(i.proc_time)
             count2 += 1
-    
-    #calc avg obs proc time
-    print(f"Avg obs proc time for task 0 is {obs0 / count0} for {name}, stated: {proc0}")
-    print(f"Avg obs proc time for task 1 is {obs1 / count1} for {name}, stated: {proc1}")
-    print(f"Avg obs proc time for task 2 is {obs2 / count2} for {name}, stated: {proc2}")
-    print("\n")
 
+    # calc avg obs proc time
+    print(
+        f"Avg obs proc time for task 0 is {obs0 / count0} for {name}, stated: {proc0}")
+    print(
+        f"Avg obs proc time for task 1 is {obs1 / count1} for {name}, stated: {proc1}")
+    print(
+        f"Avg obs proc time for task 2 is {obs2 / count2} for {name}, stated: {proc2}")
+    print("\n")
 
 
 prog1_edf = open("trace-prog1-edf.data", "r")
 prog1_rm = open("trace-prog1-rm.data", "r")
 prog2_edf = open("trace-prog2-edf.data", "r")
-prog2_rm = open("trace-prog2-rm.data", "r")  
+prog2_rm = open("trace-prog2-rm.data", "r")
 
 aborted_list_prog1_edf = []
 aborted_list_prog1_rm = []
@@ -178,24 +192,3 @@ checkObservedProc(finished_list_prog1_edf, "edf 1")
 checkObservedProc(finished_list_prog1_rm, "rm 1")
 checkObservedProc(finished_list_prog2_edf, "edf 2")
 checkObservedProc(finished_list_prog2_rm, "rm 2")
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
