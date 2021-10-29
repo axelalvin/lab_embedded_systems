@@ -91,6 +91,38 @@ def checkDiff(list, name):
     print(f"Total diff for task 2 is {diff2} for {name}")
     print("\n")
 
+def checkObservedProc(list, name):
+    obs0 = 0
+    obs1 = 0
+    obs2 = 0
+    proc0 = 0
+    proc1 = 0
+    proc2 = 0
+    count0 = 0
+    count1 = 0
+    count2 = 0
+
+    for i in list:
+        if(int(i.index) == 0):
+            obs0 += int(i.observed_proc_time)
+            proc0 = int(i.proc_time)
+            count0 += 1
+        if(int(i.index) == 1):
+            obs1 += int(i.observed_proc_time)
+            proc1 = int(i.proc_time)
+            count1 += 1
+        if(int(i.index) == 2):
+            obs2 += int(i.observed_proc_time)
+            proc2 = int(i.proc_time)
+            count2 += 1
+    
+    #calc avg obs proc time
+    print(f"Avg obs proc time for task 0 is {obs0 / count0} for {name}, stated: {proc0}")
+    print(f"Avg obs proc time for task 1 is {obs1 / count1} for {name}, stated: {proc1}")
+    print(f"Avg obs proc time for task 2 is {obs2 / count2} for {name}, stated: {proc2}")
+    print("\n")
+
+
 
 prog1_edf = open("trace-prog1-edf.data", "r")
 prog1_rm = open("trace-prog1-rm.data", "r")
@@ -139,6 +171,13 @@ checkDiff(finished_list_prog1_edf, "edf 1")
 checkDiff(finished_list_prog1_rm, "rm 1")
 checkDiff(finished_list_prog2_edf, "edf 2")
 checkDiff(finished_list_prog2_rm, "rm 2")
+
+print("")
+print("Avg obs proc time")
+checkObservedProc(finished_list_prog1_edf, "edf 1")
+checkObservedProc(finished_list_prog1_rm, "rm 1")
+checkObservedProc(finished_list_prog2_edf, "edf 2")
+checkObservedProc(finished_list_prog2_rm, "rm 2")
 
 
 

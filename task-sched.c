@@ -48,7 +48,7 @@ pque add_to_waitlist(sch_task *v, pque list, int algo)
 {
 	if (list == NULL)
 		return create_q(v);
-	else if (v->duration < list->task->duration && !algo)
+	else if (v->deadline < list->task->deadline && !algo)
 		return link_in(create_q(v), list);
 	else if (v->abs_deadline < list->task->abs_deadline && algo)
 		return link_in(create_q(v), list);
@@ -134,7 +134,7 @@ i64 sched_with_rm(void)
 				//if the task inside the prossesor have a longer duration then the task in the waitlist. Remove the shortest job from the list
 				//preempt task and send it to the waitlist, and start the shortesttask in the prossesor
 			}
-			else if (peek_task()->duration > shortesttask->duration)
+			else if (peek_task()->deadline > shortesttask->deadline)
 			{
 				waitlist = remove_first_waitlist(waitlist);
 
@@ -201,7 +201,7 @@ i64 sched_with_rm_hard(void)
 				//if the task inside the prossesor have a longer duration then the task in the waitlist. Remove the shortest job from the list
 				//preempt task and send it to the waitlist, and start the shortesttask in the prossesor
 			}
-			else if (peek_task()->duration > shortesttask->duration)
+			else if (peek_task()->deadline > shortesttask->deadline)
 			{
 				waitlist = remove_first_waitlist(waitlist);
 
