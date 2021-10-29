@@ -65,9 +65,9 @@ def calcAvgLateness(list, name):
         if(int(i.finished) - int(i.abs_deadline)) > 0:
             if(int(i.index) == 0):
                 no_of_late_0 += 1
-            if(int(i.index) == 1):
+            elif(int(i.index) == 1):
                 no_of_late_1 += 1
-            if(int(i.index) == 2):
+            elif(int(i.index) == 2):
                 no_of_late_2 += 1
             curr_lateness = int(i.finished) - int(i.abs_deadline)
             total_lateness += curr_lateness
